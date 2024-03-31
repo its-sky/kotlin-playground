@@ -3,7 +3,16 @@ spring:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:customer;MODE=MySQL
     username: sa
+  data:
+    mongodb:
+      uri: ${MONGO_DB_URI}
+      port: 27017
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: create
+
+  config:
+    import: optional:application-secret.properties
+    activate:
+      on-profile: local
